@@ -7,7 +7,17 @@ class TestTextNode(unittest.TestCase):
         node = TextNode("This is a text node", TextType.BOLD)
         node2 = TextNode("This is a text node", TextType.BOLD)
         self.assertEqual(node, node2)
+    
+    def test(self):
+        node = TextNode("This is a test", TextType.LINK)
+        node2 = TextNode("This is a test", TextType.LINK)
+        self.assertEqual(node, node2)
+    def test_ne(self):
+        node = TextNode("This is a test", TextType.BOLD)
+        node2 = TextNode("This is a test", TextType.LINK)
+        self.assertNotEqual(node, node2)
 
+       
 
 if __name__ == "__main__":
     unittest.main()
