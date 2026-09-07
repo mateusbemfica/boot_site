@@ -1,5 +1,5 @@
 import unittest
-from regex import *
+from extr import *
 
 def test_extract_markdown_images(self):
     matches = extract_markdown_images(
