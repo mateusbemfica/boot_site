@@ -58,17 +58,21 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 
 def split_nodes_image(old_nodes):
     y = []
-    i = 0
-    x = Extr.extract_markdown_images(old_nodes[i].text)
-    for j in Extr.extract_markdown_images(old_nodes[i].text):
 
+    x = extract_markdown_images(old_nodes[0].text)
+    for i in x:
+        if i in x:
+            y.append(TextNode(i[0], TextType.TEXT, i[1]))
+        y.append(TextNode(i, TextType.LINK))
+    return y
 
 
 def split_nodes_link(old_nodes):
     y = []
-    x = Extr.extract_markdown_links(old_nodes[0].text)
+    x = extract_markdown_links(old_nodes[0].text)
+
     for i in x:
         if i in x:
-            y.append(TextNode(i[0], TextType.LINK, i[1]))
-        y.append(TextNode(i, TextType.TEXT))
+            y.append(TextNode(i[0], TextType.TEXT, i[1]))
+        y.append(TextNode(i, TextType.IMAGE))
     return y
